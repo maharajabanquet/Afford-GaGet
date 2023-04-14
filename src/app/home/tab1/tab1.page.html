@@ -2,10 +2,9 @@
   <!-- Nav Bar -->
   <ion-grid class="home-top-nav">
     <ion-row class="animate__animated animate__fadeIn animate__faster">
-      <ion-col size="8">
+      <ion-col size="10">
         <ion-text color="light">
-          <h1 class="no-gap" color="dark">{{ 'GoMart!' | translate }}</h1>
-          <small class="no-gap">{{ "Let's go shopping!" | translate }}</small>
+          <h1 class="no-gap" color="dark">{{ constant.TITLE| translate }}</h1>
         </ion-text>
       </ion-col>
 
@@ -17,13 +16,13 @@
           name="search-outline"
         ></ion-icon>
       </ion-col>
-      <ion-col size="2" class="ion-text-end" routerLink="/home/tabs/tab3">
+      <!-- <ion-col  class="ion-text-end" routerLink="/home/tabs/tab3">
         <ion-icon
           size="large"
           color="light"
           name="bag-handle-outline"
         ></ion-icon>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </ion-grid>
 
@@ -34,7 +33,7 @@
     <ion-row>
       <ion-col class="ion-padding-top">
         <ion-text color="dark">
-          <h4 class="no-gap">{{ 'TOP CATEGORIES' | translate }}</h4>
+          <h4 class="no-gap">{{ constant.NEWARRIVAL| translate }}</h4>
         </ion-text>
       </ion-col>
     </ion-row>
@@ -58,7 +57,7 @@
   </ion-grid>
 
   <!-- Large Banners Card -->
-  <ion-grid class="animate__animated animate__fadeIn animate__faster">
+  <!-- <ion-grid class="animate__animated animate__fadeIn animate__faster">
     <ion-slides
       autoplay="1000"
       [options]="{ zoom: false, grabCursor: true,  initialSlide: 0, slidesPerView: 1, autoplay:true, speed: 380 }"
@@ -76,15 +75,14 @@
         </ion-col>
       </ion-slide>
     </ion-slides>
-  </ion-grid>
+  </ion-grid> -->
 
   <!-- Small Products Card -->
-  <ion-grid class="animate__animated animate__fadeIn animate__faster">
-    <!-- Card Title -->
+  <!-- <ion-grid class="animate__animated animate__fadeIn animate__faster">
     <ion-row>
       <ion-col size="9">
         <ion-text color="dark">
-          <h4 color="dark">🔥 {{ 'Apple Thiruvizha' | translate }}!</h4>
+          <h4 color="dark">🔥 {{ constant.TOPOFFERS| translate }}!</h4>
         </ion-text>
       </ion-col>
 
@@ -99,7 +97,6 @@
       </ion-col>
     </ion-row>
 
-    <!-- Card Slides -->
     <ion-slides
       [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }"
     >
@@ -137,15 +134,14 @@
         </ion-col>
       </ion-slide>
     </ion-slides>
-  </ion-grid>
+  </ion-grid> -->
 
   <!-- Medium Products Card -->
-  <ion-grid class="animate__animated animate__fadeIn animate__faster">
-    <!-- Card Title -->
+  <!-- <ion-grid class="animate__animated animate__fadeIn animate__faster">
     <ion-row>
       <ion-col size="9">
         <ion-text color="dark">
-          <h4 color="dark">✨ {{ 'New Arrivals' | translate }}</h4>
+          <h4 color="dark">✨ {{ constant.NEWLYLAUNCHED| translate }}</h4>
         </ion-text>
       </ion-col>
 
@@ -197,35 +193,55 @@
         </ion-col>
       </ion-slide>
     </ion-slides>
-  </ion-grid>
+  </ion-grid> -->
 
   <!-- Large Banners Card -->
-  <ion-grid class="animate__animated animate__fadeIn animate__faster">
+  <!-- <ion-grid class="animate__animated animate__fadeIn animate__faster">
     <ion-slides
       [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }"
     >
       <ion-slide
-        *ngFor="let card of [0,1,2]"
         class="lg-cards"
-        routerLink="/single-product-view"
-      >
+        routerLink="/single-product-view">
         <ion-col>
           <ion-img
             class="card-image round-edge"
-            src="../../../assets/products/banner{{card}}.png"
+            [src]="brandImage.PS4PS5"
           ></ion-img>
         </ion-col>
       </ion-slide>
+      <ion-slide
+      class="lg-cards"
+      routerLink="/single-product-view">
+      <ion-col>
+        <ion-img
+          class="card-image round-edge"
+          [src]="brandImage.XBOX"
+        ></ion-img>
+      </ion-col>
+    
+    </ion-slide>
+    <ion-slide
+    class="lg-cards"
+    routerLink="/single-product-view">
+    <ion-col>
+      <ion-img
+        class="card-image round-edge"
+        [src]="brandImage.HANDHELDCONSOLE"
+      ></ion-img>
+    </ion-col>
+  
+  </ion-slide>
     </ion-slides>
-  </ion-grid>
+  </ion-grid> -->
 
   <!-- Products Area -->
 
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col size="9">
         <ion-text color="dark">
-          <h4 color="dark">🍂 {{ 'Great Autumn Sale' | translate }}!</h4>
+          <h4 color="dark">🍂 {{ constant.PSGAMES| translate }}!</h4>
         </ion-text>
       </ion-col>
 
@@ -272,15 +288,15 @@
         </div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
   <!-- Products Area -->
-
+<!-- 
   <ion-grid>
     <ion-row>
       <ion-col size="9">
         <ion-text color="dark">
-          <h4 color="dark">{{ 'Trendy Fashion Sale' | translate }}</h4>
+          <h4 color="dark">{{ constant.XBOXGAMES | translate }}</h4>
         </ion-text>
       </ion-col>
 
@@ -327,7 +343,7 @@
         </div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>
 
 <div class="bottom-bar-padding"></div>

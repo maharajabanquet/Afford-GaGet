@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./home/tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: '',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
   },
   {
     path: 'register',
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'my-orders',
-    loadChildren: () => import('./my-orders/my-orders.module').then( m => m.MyOrdersPageModule)
+    loadChildren: () => import('./my-orders/my-orders.module').then( m => m.MyOrdersPageModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'my-addresses',
@@ -28,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'account-settings',
-    loadChildren: () => import('./account-settings/account-settings.module').then( m => m.AccountSettingsPageModule)
+    loadChildren: () => import('./account-settings/account-settings.module').then( m => m.AccountSettingsPageModule),
   },
   {
     path: 'order-success',
@@ -101,7 +103,8 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
-  },  {
+  },
+  {
     path: 'add-new-address',
     loadChildren: () => import('./add-new-address/add-new-address.module').then( m => m.AddNewAddressPageModule)
   }
@@ -112,6 +115,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {}

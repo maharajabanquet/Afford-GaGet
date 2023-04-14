@@ -1,6 +1,6 @@
 <ion-app>
   
-<ion-menu side="start" menuId="first" contentId="main">
+<ion-menu *ngIf="loggedIn" side="start" menuId="first" contentId="main">
   <ion-header>
         <ion-toolbar color="primary">
           <div class="side-account-img side-left-space animate__animated animate__fadeIn animate__faster">

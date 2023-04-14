@@ -6,7 +6,7 @@
       <ion-row>
         <ion-col class="animate__animated animate__fadeIn animate__faster">
           <ion-text color="dark">
-            <h1 class="head" color="dark">{{ 'Welcome' | translate }}!</h1>
+            <h1 class="head" color="dark">Welcome To {{ brandConstant.TITLE| translate }}!</h1>
             {{ 'Create a new account.' | translate }}
           </ion-text>
         </ion-col>
@@ -17,20 +17,26 @@
       class="padding login-form animate__animated animate__fadeIn animate__faster"
     >
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'Username' | translate }}"
-          ><ion-icon class="icon-padding" name="at-outline"></ion-icon
+        <ion-input type="text" placeholder="{{ brandConstant.MOBILE | translate }}"
+          ><ion-icon class="icon-padding" name="{{ brandICON.MOBILE }}"></ion-icon
         ></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'Email' | translate }}"
-          ><ion-icon class="icon-padding" name="mail-outline"></ion-icon
+        <ion-input type="text" placeholder="{{ brandConstant.EMAIL| translate }}"
+          ><ion-icon class="icon-padding" name="{{ brandICON.MAIL }}"></ion-icon
         ></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="password" placeholder="{{ 'Password' | translate }}"
-          ><ion-icon class="icon-padding" name="lock-closed-outline"></ion-icon
+        <ion-input type="password" placeholder="{{ brandConstant.PASSWORD| translate }}"
+          ><ion-icon class="icon-padding" name="{{ brandICON.PASWWORD }}"></ion-icon
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="{{ brandConstant.CONFIRMPASSWORD| translate }}"
+          ><ion-icon class="icon-padding" name="{{ brandICON.PASWWORD }}"></ion-icon
         ></ion-input>
       </ion-item>
     </ion-grid>

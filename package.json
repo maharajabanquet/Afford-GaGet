@@ -28,6 +28,7 @@
     "@capacitor/status-bar": "^4.0.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic/angular": "^5.0.0",
+    "@ionic/lab": "^3.2.15",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "animate.css": "^4.1.1",

@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth-services.service';
 import { Component } from '@angular/core';
 
 import { MenuController, Platform } from '@ionic/angular';
@@ -13,12 +14,16 @@ import { Capacitor } from '@capacitor/core';
 })
 export class AppComponent {
   currentRoute:any;
+  loggedIn: boolean;
   constructor(
     private platform: Platform,
     private translateConfigService: TranslateConfigService,
-    private menu: MenuController
+    private menu: MenuController,
+    private authService: AuthService,
+
   ) {
     this.initializeApp();
+    this.loggedIn = this.authService.getAuthStatus();
   }
 
   systemLanguage:any;

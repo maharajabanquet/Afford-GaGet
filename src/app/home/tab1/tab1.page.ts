@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-
+import { brandConstant, BRANDIMAGE } from 'src/app/brand-constant/label';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -9,7 +9,8 @@ import { MenuController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  
+  constant = brandConstant;
+  brandImage = BRANDIMAGE;
   constructor( private router: Router, private menu: MenuController) {}
 
   categories = {
