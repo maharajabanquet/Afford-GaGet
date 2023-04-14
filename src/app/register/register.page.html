@@ -1,0 +1,80 @@
+<ion-content [fullscreen]="true">
+  <!-- Nav Bar -->
+
+  <div class="top-nav">
+    <ion-grid class="padding">
+      <ion-row>
+        <ion-col class="animate__animated animate__fadeIn animate__faster">
+          <ion-text color="dark">
+            <h1 class="head" color="dark">{{ 'Welcome' | translate }}!</h1>
+            {{ 'Create a new account.' | translate }}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+    <ion-grid
+      class="padding login-form animate__animated animate__fadeIn animate__faster"
+    >
+      <ion-item>
+        <ion-input type="text" placeholder="{{ 'Username' | translate }}"
+          ><ion-icon class="icon-padding" name="at-outline"></ion-icon
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="{{ 'Email' | translate }}"
+          ><ion-icon class="icon-padding" name="mail-outline"></ion-icon
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="{{ 'Password' | translate }}"
+          ><ion-icon class="icon-padding" name="lock-closed-outline"></ion-icon
+        ></ion-input>
+      </ion-item>
+    </ion-grid>
+    <ion-button
+      color="tertiary"
+      routerLink="/home"
+      class="ion-text-capitalize ion-margin-top no-gap"
+      size="large"
+      expand="full"
+      >{{ 'Signup' | translate }}</ion-button
+    >
+  </div>
+
+  <ion-grid class="ion-text-center">
+    <ion-text class="ion-text-center padding text-muted"
+      ><h6>{{ 'Or Continue with' | translate }}</h6></ion-text
+    >
+  </ion-grid>
+</ion-content>
+
+<div class="bottom-bar no-gap">
+  <ion-row class="no-gap">
+    <ion-grid size="6" class="no-gap">
+      <ion-button
+        color="secondary"
+        routerLink="/home"
+        class="ion-text-capitalize no-gap"
+        size="large"
+        expand="full"
+      >
+      {{ 'Facebook' | translate }}</ion-button
+      >
+    </ion-grid>
+
+    <ion-grid size="6" class="no-gap">
+      <ion-button
+        color="danger"
+        routerLink="/home"
+        class="ion-text-capitalize no-gap"
+        size="large"
+        expand="full"
+      >
+        {{ 'Google' | translate }}</ion-button
+      >
+    </ion-grid>
+  </ion-row>
+</div>

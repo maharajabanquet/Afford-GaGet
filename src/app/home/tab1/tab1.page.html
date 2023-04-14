@@ -1,0 +1,333 @@
+<ion-content [fullscreen]="true">
+  <!-- Nav Bar -->
+  <ion-grid class="home-top-nav">
+    <ion-row class="animate__animated animate__fadeIn animate__faster">
+      <ion-col size="8">
+        <ion-text color="light">
+          <h1 class="no-gap" color="dark">{{ 'GoMart!' | translate }}</h1>
+          <small class="no-gap">{{ "Let's go shopping!" | translate }}</small>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="2" class="ion-text-end">
+        <ion-icon
+          size="large"
+          color="light"
+          (click)="doSearch()"
+          name="search-outline"
+        ></ion-icon>
+      </ion-col>
+      <ion-col size="2" class="ion-text-end" routerLink="/home/tabs/tab3">
+        <ion-icon
+          size="large"
+          color="light"
+          name="bag-handle-outline"
+        ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Categories Grid -->
+  <ion-grid
+    class="categories-grid animate__animated animate__fadeIn animate__faster"
+  >
+    <ion-row>
+      <ion-col class="ion-padding-top">
+        <ion-text color="dark">
+          <h4 class="no-gap">{{ 'TOP CATEGORIES' | translate }}</h4>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-slides
+      [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }"
+    >
+      <ion-slide
+        *ngFor="let category of categories.categories; let i = index;"
+        class="x-small-card"
+      >
+        <ion-col routerLink="/product-list">
+          <ion-img
+            class="card-image round-edge"
+            src="../../../assets/products/{{i}}.png"
+          ></ion-img>
+          <p class="ion-text-uppercase left-text no-gap">{{ category }}</p>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+
+  <!-- Large Banners Card -->
+  <ion-grid class="animate__animated animate__fadeIn animate__faster">
+    <ion-slides
+      autoplay="1000"
+      [options]="{ zoom: false, grabCursor: true,  initialSlide: 0, slidesPerView: 1, autoplay:true, speed: 380 }"
+    >
+      <ion-slide
+        *ngFor="let card of [2,1,0,1,2]"
+        class="lg-cards"
+        routerLink="/single-product-view"
+      >
+        <ion-col>
+          <ion-img
+            class="card-image round-edge"
+            src="../../../assets/products/banner{{card}}.png"
+          ></ion-img>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+
+  <!-- Small Products Card -->
+  <ion-grid class="animate__animated animate__fadeIn animate__faster">
+    <!-- Card Title -->
+    <ion-row>
+      <ion-col size="9">
+        <ion-text color="dark">
+          <h4 color="dark">🔥 {{ 'Apple Thiruvizha' | translate }}!</h4>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="3" class="ion-text-end">
+        <ion-button
+          class="card-header-btn"
+          routerLink="/product-list"
+          color="primary"
+          size="small"
+          >{{ 'More' | translate }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <!-- Card Slides -->
+    <ion-slides
+      [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }"
+    >
+      <ion-slide
+        routerLink="/single-product-view"
+        *ngFor="let mobile of mobiles"
+        class="sm-cards"
+      >
+        <ion-col>
+          <ion-img
+            class="card-image"
+            src="{{ mobile?.productImage }}"
+          ></ion-img>
+          <div class="ion-padding-top ion-padding-bottom">
+            <h6 class="ion-text-start no-gap text-oflow-sm">
+              {{ mobile?.shortName }}
+            </h6>
+            <small
+              class="ion-text-start no-gap text-oflow-sm text-muted x-small"
+              >{{ mobile?.productName }}</small
+            >
+            <h6 class="ion-text-start small no-gap" color="dark">
+              ₹{{ mobile?.salesPrice }}
+
+              <small class="text-muted xx-small"
+                ><del>₹{{ mobile?.regularPrice }}</del></small
+              >
+              <ion-text color="danger"
+                ><b class="ion-float-right x-small"
+                  >{{ mobile?.off }}% Off</b
+                ></ion-text
+              >
+            </h6>
+          </div>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+
+  <!-- Medium Products Card -->
+  <ion-grid class="animate__animated animate__fadeIn animate__faster">
+    <!-- Card Title -->
+    <ion-row>
+      <ion-col size="9">
+        <ion-text color="dark">
+          <h4 color="dark">✨ {{ 'New Arrivals' | translate }}</h4>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="3" class="ion-text-end">
+        <ion-button
+          class="card-header-btn"
+          routerLink="/product-list"
+          color="primary"
+          size="small"
+          >{{ 'More' | translate }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-slides
+      [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }"
+    >
+      <ion-slide
+        *ngFor="let item of newArrivals"
+        class="md-cards"
+        routerLink="/single-product-view"
+      >
+        <ion-col>
+          <ion-img
+            class="card-image round-edge"
+            src="{{ item?.productImage }}"
+          ></ion-img>
+          <div class="ion-padding-top">
+            <h6 class="ion-text-start no-gap text-oflow-lg">
+              {{ item?.shortName }}
+            </h6>
+            <small
+              class="ion-text-start no-gap text-oflow-lg text-muted x-small"
+              >{{ item?.productName }}</small
+            >
+            <h6 class="ion-text-start no-gap" color="dark">
+              ₹{{ item?.salesPrice }}
+
+              <small class="text-muted x-small"
+                ><del>₹{{ item?.regularPrice }}</del></small
+              >
+              <ion-text color="danger"
+                ><b class="ion-float-right x-small"
+                  >{{ item?.off }}% Off</b
+                ></ion-text
+              >
+            </h6>
+          </div>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+
+  <!-- Large Banners Card -->
+  <ion-grid class="animate__animated animate__fadeIn animate__faster">
+    <ion-slides
+      [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }"
+    >
+      <ion-slide
+        *ngFor="let card of [0,1,2]"
+        class="lg-cards"
+        routerLink="/single-product-view"
+      >
+        <ion-col>
+          <ion-img
+            class="card-image round-edge"
+            src="../../../assets/products/banner{{card}}.png"
+          ></ion-img>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+
+  <!-- Products Area -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="9">
+        <ion-text color="dark">
+          <h4 color="dark">🍂 {{ 'Great Autumn Sale' | translate }}!</h4>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="3" class="ion-text-end">
+        <ion-button
+          class="card-header-btn"
+          routerLink="/product-list"
+          color="primary"
+          size="small"
+          >{{ 'More' | translate }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="animate__animated animate__fadeIn animate__faster">
+      <ion-col
+        size-xs="6"
+        size-sm="6"
+        size-md="3"
+        size-lg="3"
+        class="card-border"
+        *ngFor="let card of [0,1,2,3,4,5,6]"
+        routerLink="/single-product-view"
+      >
+        <ion-img
+          class="card-image"
+          src="../../../assets/products/item_{{card}}.png"
+        ></ion-img>
+        <div class="ion-padding-top">
+          <h6 class="ion-text-start no-gap text-oflow-md">
+            {{ 'Product' | translate }} #{{card}}
+          </h6>
+          <small class="ion-text-start no-gap text-oflow-md text-muted x-small"
+            >{{ 'Product' | translate }} {{ card }}</small
+          >
+          <h6 class="ion-text-start no-gap" color="dark">
+            ₹11{{ card }}
+
+            <small class="text-muted"><del>₹112{{ card }}</del></small>
+            <ion-text color="danger"
+              ><b class="ion-float-right small">5{{ card }}% Off</b></ion-text
+            >
+          </h6>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Products Area -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="9">
+        <ion-text color="dark">
+          <h4 color="dark">{{ 'Trendy Fashion Sale' | translate }}</h4>
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="3" class="ion-text-end">
+        <ion-button
+          class="card-header-btn"
+          routerLink="/product-list"
+          color="primary"
+          size="small"
+          >{{ 'More' | translate }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="animate__animated animate__fadeIn animate__faster">
+      <ion-col
+        size-xs="6"
+        size-sm="6"
+        size-md="3"
+        size-lg="3"
+        class="card-border"
+        *ngFor="let card of [0,1,2,3,4,5]"
+        routerLink="/single-product-view"
+      >
+        <ion-img
+          class="card-image"
+          src="../../../assets/products/{{card}}.png"
+        ></ion-img>
+        <div class="ion-padding-top">
+          <h6 class="ion-text-start no-gap text-oflow-md">
+            {{ 'Product' | translate }} #{{card}}
+          </h6>
+          <small class="ion-text-start no-gap text-oflow-md text-muted x-small"
+            >{{ 'Product' | translate }} {{ card }}</small
+          >
+          <h6 class="ion-text-start no-gap" color="dark">
+            ₹11{{ card }}
+
+            <small class="text-muted"><del>₹112{{ card }}</del></small>
+            <ion-text color="danger"
+              ><b class="ion-float-right small">5{{ card }}% Off</b></ion-text
+            >
+          </h6>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<div class="bottom-bar-padding"></div>

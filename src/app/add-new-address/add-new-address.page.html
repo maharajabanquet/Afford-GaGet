@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'Add new address' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-grid class="ion-padding">
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'Fullname' | translate }}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'Address Line 1' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'Address Line 2' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'Zip Code' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'City' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'State' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'Country' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="{{ 'Phone' | translate }}"
+      ></ion-input>      
+    </ion-item>
+
+
+    <ion-button
+      routerLink="/my-addresses"
+      color="dark"
+      size="large"
+      class="ion-text-capitalize medium ion-margin-top"
+      expand="full"
+      >{{ 'Save Address' | translate }}</ion-button
+    >
+
+  
+  </ion-grid>
+
+</ion-content>
